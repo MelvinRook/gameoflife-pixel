@@ -60,6 +60,9 @@ class Board:
         '''
         method that sets the random state of all cells.
         '''
+        # reset state
+        self._state = "0000000000000000"
+
         # select next colour
         self._colour = choice(self._colours)
         
