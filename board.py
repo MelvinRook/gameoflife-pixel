@@ -19,6 +19,7 @@ class Board:
         self._colour = 0x00FF00
         self._colours = [0x00FF00,0x0000FF,0xFF0000,0xB8E986,0xF8B700,0x50E3C2,0xFE13D4,0x9013FE]
         self._state = "0000000000000000"
+        self._state_count = 0
         self._rows = rows
         self._columns = columns   
         self._grid = [[Cell() for column_cells in range(self._columns)] for row_cells in range(self._rows)]
@@ -31,8 +32,7 @@ class Board:
         '''
         state = ""
         
-        print('\n'*2)
-        print('printing board')
+        print('\n'*1)
         for row_no, row in enumerate(self._grid):
             for col_no, column in enumerate(row):
                 #print ('debug: ',col_no, row_no)
@@ -49,7 +49,13 @@ class Board:
         display.flush() # write to framebuffer
         
         # Check state
-        result = (state == self._state)
+        result = 0
+        if (state == self._state):
+            self._state_count = self._state_count + 1
+            if(self._state_count > 3):
+                result = 1
+            if(state == "0000000000000000"):
+                result = 1
         
         # Save state for next iteration
         self._state = state
@@ -62,6 +68,9 @@ class Board:
         '''
         # reset state
         self._state = "0000000000000000"
+        self._state_count = 0
+
+        print('************************\n* Generating new board *\n************************')
 
         # select next colour
         self._colour = choice(self._colours)
