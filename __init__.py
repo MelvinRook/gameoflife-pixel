@@ -18,7 +18,7 @@ def main():
         game_of_life_board.update_board()
         if (game_of_life_board.draw_board()):
             game_of_life_board.generate_board()
-        time.sleep_ms(1200) # refresh time
+        time.sleep_ms(1000) # refresh time
 
 
 main()
