@@ -1,7 +1,7 @@
 '''
 Game of Life
 Martin A. Aaberge
-Modified by Melvin to work on the CZ2020 badge
+Modified by Melvin to work on the CZ2020 and Pixel badge
 '''
 
 from .board import Board
