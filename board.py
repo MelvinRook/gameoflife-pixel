@@ -38,10 +38,10 @@ class Board:
                 #print ('debug: ',col_no, row_no)
                 if (column.get_print_character()):
                     display.drawPixel(col_no, row_no, self._colour)
-                    state + "1"
+                    state += "1"
                 else:
                     display.drawPixel(col_no, row_no, 0x000000)
-                    state + "0"
+                    state += "0"
                     
                 print (column.get_print_character(),end='')
             print () # to create a new line pr. row.
@@ -56,6 +56,8 @@ class Board:
                 result = 1
             if(state == "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"):
                 result = 1
+        else:
+            self._state_count = 0
         
         # Save state for next iteration
         self._state = state
