@@ -7,7 +7,7 @@ Modified by Melvin to work on the CZ2020 and Pixel badge
 '''
 
 from .cell import Cell
-from time import time
+import time
 from random import randint, seed, choice
 import display
 
@@ -76,7 +76,7 @@ class Board:
         self._colour = choice(self._colours)
         
         # improve randomness (taken from Simon Says)
-        seed( int( 1000000 * time() ) % 1000000)
+        seed( int( 1000000 * time.time() ) % 1000000)
 
         for row in self._grid:
             for column in row:
